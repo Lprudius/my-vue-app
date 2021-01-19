@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <header class="header">
-      <b-navbar toggleable="lg" type="dark" variant="info">
-
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <b-nav-item href="#">Home</b-nav-item>
-            <b-nav-item href="#">New task</b-nav-item>
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar>
-    </header>
+    <pageHeader />
     <main class="main">
       <div class="container">
-
+        <homeBlock />
       </div>
     </main>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import pageHeader from '@/components/page-header.vue'
+import homeBlock from '@/components/home-block.vue'
 
 export default {
+  components: {
+    pageHeader,
+    homeBlock
+  }
 }
 </script>
