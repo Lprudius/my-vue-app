@@ -17,8 +17,8 @@ export default new VueRouter({
             component: Home
         },
         {
-            path: '/new-task',
-            name: 'new-task',
+            path: '/create-new-task',
+            name: 'create-new-task',
             component: NewTask
         },
     ]
