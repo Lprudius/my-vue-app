@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 //Pages
-import Home from '@/pages/Home'
-import NewTask from '@/pages/New-task.vue'
+import Home from '@/pages/home'
+import NewTask from '@/pages/new-task.vue'
 
 //Routering
 
