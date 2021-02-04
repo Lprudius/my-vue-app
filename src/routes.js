@@ -5,7 +5,8 @@ Vue.use(VueRouter)
 
 //Pages
 import Home from '@/pages/home'
-import NewTask from '@/pages/new-task.vue'
+import NewTask from '@/pages/new-task'
+import ViewTask from '@/pages/view-task'
 
 //Routering
 
@@ -20,6 +21,11 @@ export default new VueRouter({
             path: '/create-new-task',
             name: 'create-new-task',
             component: NewTask
+        },
+        {
+            path: '/view-task/:id',
+            name: 'view-task',
+            component: ViewTask
         },
     ]
 })
