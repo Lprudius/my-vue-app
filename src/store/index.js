@@ -20,6 +20,9 @@ const store = new Vuex.Store({
     getters: {
         cards(state) {
             return state.cards
+        },
+        getCard: (state) => (id) => {
+            return state.cards.find(card => card.id == id)
         }
     }
 })

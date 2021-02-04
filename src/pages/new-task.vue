@@ -22,13 +22,14 @@ export default {
     return {
       card: {
         title: null,
-        descr: null
+        descr: null,
+        id: null
       }
     }
   },
   methods: {
     addNew() {
-      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr});
+      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr, id: (Date.now() + Math.random() * 10e10).toString(16).split('.').shift()});
       this.$router.push('/')
     }
   }

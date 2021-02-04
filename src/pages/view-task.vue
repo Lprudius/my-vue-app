@@ -10,16 +10,12 @@
 export default {
   data() {
     return {
-      card: {
-        title: '',
-        descr: ''
-      }
+      card: null
     }
   },
   created() {
-    // let id = this.$route.params.id
-    // this.card = this.$store.getters.getCard(i)
+    let id = this.$route.params.id
+    this.card = this.$store.getters.getCard(id)
   }
 }
-
 </script>

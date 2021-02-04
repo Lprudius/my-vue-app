@@ -38,7 +38,8 @@
       return {
         card: {
           title: null,
-          descr: null
+          descr: null,
+          id: null
         }
       }
     }
