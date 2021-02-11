@@ -3,7 +3,7 @@
     <ul class="row list-unstyled pt-4 text-center">
       <li class="col"
           v-for="(card, index) in cards"
-          :key="card.title"
+          :key="card.id"
           :index="index"
       >
         <div class="card mb-3">
@@ -15,7 +15,7 @@
                 <router-link type="button" :to="/view-task/ + card.id" class="btn btn-dark mb-1 w-100">View</router-link>
               </div>
               <div class="col-6">
-                <button type="button" @click="removeCard(card)" class="btn btn-dark w-100">Delete</button>
+                <button type="button" @click="removeCard(card.id)" class="btn btn-dark w-100">Delete</button>
               </div>
             </div>
           </div>
@@ -41,6 +41,11 @@
           descr: null,
           id: null
         }
+      }
+    },
+    methods: {
+      removeCard(id) {
+        this.$store.dispatch('deleteCard',id)
       }
     }
   }

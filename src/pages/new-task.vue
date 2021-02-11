@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create new task</h1>
-    <form @submit.prevent>
+    <form @submit.prevent="onSubmit">
       <div class="form-group">
         <label>Title:</label>
         <input v-model="card.title" class="form-control" type="text">
@@ -10,7 +10,7 @@
         <label>Description:</label>
         <textarea v-model="card.descr" class="form-control"></textarea>
       </div>
-      <button :disabled="!card.title || !card.descr" @click="addNew" class="btn btn-primary">Submit</button>
+      <button :disabled="!card.title || !card.descr" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    addNew() {
+    onSubmit() {
       this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr, id: (Date.now() + Math.random() * 10e10).toString(16).split('.').shift()});
       this.$router.push('/')
     }
