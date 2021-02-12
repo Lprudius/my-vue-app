@@ -45,7 +45,8 @@
     },
     methods: {
       removeCard(id) {
-        this.$store.dispatch('deleteCard',id)
+        this.$store.dispatch('deleteCard',id);
+        window.confirm()
       }
     }
   }

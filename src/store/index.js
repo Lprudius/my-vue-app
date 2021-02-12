@@ -14,11 +14,13 @@ const store = new Vuex.Store({
                 title: payload.title,
                 descr: payload.descr
             }
-            state.cards.push(newCard)
+            state.cards.push(newCard);
+            localStorage.setItem('cards', JSON.stringify(state.cards));
         },
         DELETE_CARD(state, id) {
             let cardIndex = state.cards.findIndex(card => card.id == id)
-            state.cards.splice(cardIndex, 1)
+            state.cards.splice(cardIndex, 1);
+            localStorage.setItem('cards', JSON.stringify(state.cards));
         }
     },
     actions: {
