@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr, id: (Date.now() + Math.random() * 10e10).toString(16).split('.').shift()});
+      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr, id: ''});
       this.$router.push('/')
     }
   }

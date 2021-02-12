@@ -8,8 +8,13 @@ const store = new Vuex.Store({
         cards: []
     },
     mutations: {
-        ADD_CARD(state, card) {
-            state.cards.push(card)
+        ADD_CARD(state, payload) {
+            const newCard = {
+                id:  (Date.now() + Math.random() * 10e10).toString(16).split('.').shift(),
+                title: payload.title,
+                descr: payload.descr
+            }
+            state.cards.push(newCard)
         },
         DELETE_CARD(state, id) {
             let cardIndex = state.cards.findIndex(card => card.id == id)
@@ -17,8 +22,8 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        addCard({commit}, card) {
-            commit('ADD_CARD', card)
+        addCard(context, payload) {
+            context.commit('ADD_CARD', payload)
         },
         deleteCard(context, id) {
             context.commit('DELETE_CARD', id)
