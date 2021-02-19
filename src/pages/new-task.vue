@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr, id: ''});
-      this.$router.push('/')
+      this.$store.dispatch('addCard', {title: this.card.title, descr: this.card.descr});
+      this.$router.push('/');
     }
   }
 }

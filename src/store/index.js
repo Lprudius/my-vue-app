@@ -18,26 +18,32 @@ const store = new Vuex.Store({
             localStorage.setItem('cards', JSON.stringify(state.cards));
         },
         DELETE_CARD(state, id) {
-            let cardIndex = state.cards.findIndex(card => card.id == id)
+            const cardIndex = state.cards.findIndex(card => card.id === id);
             state.cards.splice(cardIndex, 1);
             localStorage.setItem('cards', JSON.stringify(state.cards));
         }
     },
     actions: {
         addCard(context, payload) {
-            context.commit('ADD_CARD', payload)
+            context.commit('ADD_CARD', payload);
         },
         deleteCard(context, id) {
-            context.commit('DELETE_CARD', id)
+            context.commit('DELETE_CARD', id);
         }
     },
     getters: {
-        cards(state) {
-            return state.cards
-        },
         getCard: (state) => (id) => {
-            return state.cards.find(card => card.id == id)
-        }
+            console.log(id);
+            return state.cards.find(card => card.id == id);
+        },
+        cards(state) {
+            const cards = JSON.parse(localStorage.getItem('cards'));
+            if (cards && cards.length > 0) {
+                state.cards = cards;
+            }
+
+            return state.cards;
+        },
     }
 })
 
